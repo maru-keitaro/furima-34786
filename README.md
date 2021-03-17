@@ -33,7 +33,6 @@
 ### Association
 - belongs_to :user
 - has_one :order
-- has_one :address
 
 
 ## ordersテーブル
@@ -46,6 +45,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
+- has_one :address
 
 
 ## address
@@ -53,7 +53,7 @@
 |Column         |Type        |Options                         |
 |---------------|------------|--------------------------------|
 | postal_code   | string     | null: false                    |
-| prefecture_id | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
 | city          | string     | null: false                    |
 | address_line  | string     | null: false                    |
 | building_name | string     |                                |
@@ -62,4 +62,3 @@
 
 ### Association
 - belongs_to :order
-- belongs_to :item
