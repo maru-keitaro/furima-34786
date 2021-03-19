@@ -1,4 +1,4 @@
-class condition < ActiveHash::Base
+class Condition < ActiveHash::Base
 
   self.data = [
     {id: 0, name: '---'},

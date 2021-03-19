@@ -1,4 +1,4 @@
-class delivery_fee < ActiveHash::Base
+class DeliveryFee < ActiveHash::Base
 
   self.data = [
     {id: 0, name: '---'},

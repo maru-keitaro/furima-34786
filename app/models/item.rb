@@ -1,20 +1,28 @@
 class Item < ApplicationRecord
 
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :category
+  belongs_to_active_hash :condition
+  belongs_to_active_hash :delivery_fee
+  belongs_to_active_hash :prefecture
+  belongs_to_active_hash :delivery_day
+
   with_options presence: true do
+    validates :image
     validates :name
     validates :description
-    validates :category_id
-    validates :condition_id
-    validates :delivery_fee_id
-    validates :prefecture_id
-    validates :delivery_day_id
     validates :price
-    validates :image
   end
 
-  validates :genre_id, numericality: { other_than: 1 } 
+  validates :category_id, numericality: { other_than: 0 } 
+  validates :condition_id, numericality: { other_than: 0 } 
+  validates :delivery_fee_id, numericality: { other_than: 0 } 
+  validates :prefecture_id, numericality: { other_than: 0 } 
+  validates :delivery_day_id, numericality: { other_than: 0 } 
 
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :genre
+  belongs_to :user
   has_one_attached :image
 end
+
+
+
