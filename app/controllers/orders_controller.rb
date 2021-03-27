@@ -5,15 +5,10 @@ class OrdersController < ApplicationController
 
   def index
     @order_address = OrderAddress.new
-    # @item = Item.find(params[:item_id])  # set_itemでまとめる
-    # if @item.user_id == current_user.id || @item.order.present?  # move_to_indexでまとめる
-    #   redirect_to root_path
-    # end
   end
 
   def create
     @order_address = OrderAddress.new(order_params)
-    # @item = Item.find(params[:item_id])  # set_itemでまとめる
     if @order_address.valid?   # saveメソッドにはバリデーションを実行する機能がないため
       pay_item
       @order_address.save

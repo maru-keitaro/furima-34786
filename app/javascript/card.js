@@ -14,8 +14,6 @@ const pay = () => {
       cvc: formData.get("order_address[cvc]"),
     };
 
-    // console.log(card);  カード情報確認
-
     Payjp.createToken(card, (status, response) => {
       if (status == 200) {
         const token = response.id;
@@ -35,8 +33,3 @@ const pay = () => {
 };
 
 window.addEventListener("load", pay);
-
-
-// カード番号 4242424242424242（16桁）
-// CVC 123
-// 有効期限 登録時より未来
