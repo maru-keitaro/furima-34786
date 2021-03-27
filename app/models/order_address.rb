@@ -8,7 +8,7 @@ class OrderAddress
     validates :token
     validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
     validates :address_line
-    validates :phone_number, format: {with: /\A\d{11}\z/, message: "is invalid"}
+    validates :phone_number, format: {with: /\A\d{10,11}\z/, message: "is invalid"}
     validates :city
   end
 
