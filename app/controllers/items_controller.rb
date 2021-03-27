@@ -50,11 +50,11 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    unless @item.user_id == current_user.id
-      redirect_to action: :index
+    if @item.user_id == current_user.id || @item.order.present?
+      redirect_to root_path
     end
   end
-
+  
   def item_params
     params.require(:item).permit(:name, :description, :category_id, :condition_id , :delivery_fee_id, :prefecture_id, :delivery_day_id, :price, :image).merge(user_id: current_user.id)
   end
