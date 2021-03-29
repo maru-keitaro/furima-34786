@@ -12,7 +12,7 @@ class User < ApplicationRecord
     validates :first_name_kana, format: {with: /\A[ァ-ヶー－]+\z/ } 
     validates :birthday
 
-    VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i
+    VALID_PASSWORD_REGEX = /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]/
     validates :password, format: { with: VALID_PASSWORD_REGEX }
     
   end
@@ -20,3 +20,7 @@ class User < ApplicationRecord
   has_many :items
   has_many :orders
 end
+
+# /\A[a-z0-9]+\z/i
+# /\A[a-zA-Z0-9]+\z
+# /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]/
