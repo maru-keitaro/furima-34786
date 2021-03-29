@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
   end
 
   def update
+    
     # @item = Item.find(params[:id])  (before_actionでまとめている)
     if @item.user_id == current_user.id
        @item.update(item_params)
@@ -50,7 +51,7 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    if @item.user_id == current_user.id || @item.order.present?
+    if current_user.id && @item.order.present?
       redirect_to root_path
     end
   end
